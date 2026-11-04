@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graczyk — Salon Fryzjerski · Łódź</title>
+  <meta name="description" content="Graczyk — salon fryzjerski in Łódź. Precision. Atmosphere. Mastery. Rated 5.0 from 32 Google reviews. ul. Parcelacyjna 9, 91-141 Łódź. Call +48 691 218 390." />
+  <meta name="theme-color" content="#050505" />
+  <!-- Demo build: keep out of search engines until the owner approves -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="Graczyk — Salon Fryzjerski" />
+  <meta property="og:description" content="Precision. Atmosphere. Mastery. ul. Parcelacyjna 9, Łódź." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23050505'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23C89B7B'%3EG%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#050505',
+            carbon: '#121212',
+            pearl: '#F3F3F1',
+            mute: '#888888',
+            copper: '#C89B7B',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Cormorant', 'Georgia', 'serif'],
+            sans: ['Inter', '"Neue Montreal"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { ui: '0.05em', tightest: '-0.045em' },
+          transitionTimingFunction: { cine: 'cubic-bezier(0.76, 0, 0.24, 1)' },
+        },
+      },
+    };
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Graczyk - salon fryzjerski",
+    "telephone": "+48 691 218 390",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ul. Parcelacyjna 9",
+      "postalCode": "91-141",
+      "addressLocality": "Łódź",
+      "addressCountry": "PL"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "32" },
+    "review": {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Неля Савченко" },
+      "reviewBody": "Super",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --ease: cubic-bezier(0.76, 0, 0.24, 1);
+      --obsidian: #050505;
+      --carbon: #121212;
+      --pearl: #F3F3F1;
+      --mute: #888888;
+      --copper: #C89B7B;
+    }
+
+    html { background: var(--obsidian); -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--obsidian);
+      color: var(--pearl);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    body.is-loading { overflow: hidden; }
+    ::selection { background: var(--copper); color: var(--obsidian); }
+
+    h1, h2, h3 { font-family: 'Playfair Display', 'Cormorant', Georgia, serif; letter-spacing: -0.03em; font-weight: 400; }
+    .ui { text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(0.68rem, 0.62rem + 0.18vw, 0.82rem); }
+
+    /* ---------- Film grain ---------- */
+    .grain {
+      position: fixed; inset: -50%; z-index: 80; pointer-events: none; opacity: .07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: grain 1s steps(6) infinite;
+    }
+    @keyframes grain {
+      0% { transform: translate(0, 0); } 20% { transform: translate(-4%, 3%); } 40% { transform: translate(3%, -5%); }
+      60% { transform: translate(-6%, -2%); } 80% { transform: translate(5%, 4%); } 100% { transform: translate(0, 0); }
+    }
+
+    /* ---------- Loader ---------- */
+    #loader { transition: transform 1.2s var(--ease); }
+    body.is-loaded #loader { transform: translateY(-100%); }
+    #loader .loader-bar { transform-origin: left; transform: scaleX(var(--p, 0)); }
+
+    /* ---------- Scroll reveal (Intersection Observer) ---------- */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); will-change: opacity, transform; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* ---------- Hero split text ---------- */
+    .split-line { display: block; overflow: hidden; padding-bottom: 0.04em; margin-bottom: -0.04em; }
+    .split-char { display: inline-block; transform: translateY(115%) rotate(4deg); transform-origin: left bottom; transition: transform 1.4s var(--ease); will-change: transform; }
+    .hero-ready .split-char { transform: none; }
+    .hero-fade { opacity: 0; transform: translateY(16px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+    .hero-ready .hero-fade { opacity: 1; transform: none; }
+
+    /* Hero background */
+    .hero-photo { animation: heroDrift 24s var(--ease) infinite alternate; }
+    @keyframes heroDrift { from { transform: scale(1.12) translate3d(0, 0, 0); } to { transform: scale(1.22) translate3d(-2%, -1.5%, 0); } }
+    .hero-glow {
+      background: radial-gradient(600px circle at var(--gx, 70%) var(--gy, 30%), rgba(200, 155, 123, 0.16), transparent 60%);
+      transition: background .2s linear;
+    }
+
+    /* Scroll indicator */
+    .scroll-line { animation: scrollLine 2.4s var(--ease) infinite; transform-origin: top; }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.01% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ---------- Header ---------- */
+    .glass {
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(5, 5, 5, 0.6); border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    #siteHeader { transition: transform 1s var(--ease), opacity 1s var(--ease); }
+    #siteHeader.is-hidden { transform: translateY(-160%); }
+    [data-magnetic] { transition: transform .6s var(--ease); will-change: transform; }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--copper);
+      transform: scaleX(0); transform-origin: right; transition: transform .8s var(--ease);
+    }
+    .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+    /* Rolling text (marquee hover: slide up & replace) */
+    .rc { display: inline-block; overflow: hidden; height: 1.12em; line-height: 1.12em; vertical-align: top; }
+    .rc > span { display: block; transition: transform .9s var(--ease); transition-delay: var(--d, 0s); }
+    .rc > span > span { display: block; height: 1.12em; }
+    .rc > span > span + span { color: var(--copper); }
+    [data-roll-host]:hover .rc > span, [data-roll-host]:focus-visible .rc > span { transform: translateY(-1.12em); }
+
+    /* Mobile menu */
+    #mobileMenu { clip-path: inset(0 0 100% 0); transition: clip-path 1.1s var(--ease); }
+    #mobileMenu.is-open { clip-path: inset(0 0 0 0); }
+    #mobileMenu .mm-link { transform: translateY(110%); transition: transform 1.1s var(--ease); }
+    #mobileMenu.is-open .mm-link { transform: none; }
+    .burger span { transition: transform .7s var(--ease), opacity .4s var(--ease); }
+    .menu-open .burger span:first-child { transform: translateY(3px) rotate(45deg); }
+    .menu-open .burger span:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+    /* ---------- Marquee band ---------- */
+    .marquee-track { animation: marquee 38s linear infinite; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ---------- Bento ---------- */
+    .spot { position: relative; isolation: isolate; }
+    .spot::before {
+      content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(200, 155, 123, 0.13), transparent 45%);
+      transition: opacity .8s var(--ease);
+    }
+    .spot:hover::before { opacity: 1; }
+    .bento-photo { transition: transform 2.4s var(--ease); animation: kenBurns 26s ease-in-out infinite alternate; }
+    @keyframes kenBurns { from { object-position: 50% 40%; } to { object-position: 50% 60%; } }
+    .bento-img-wrap:hover .bento-photo { transform: scale(1.05); }
+
+    /* ---------- Accordion ---------- */
+    .acc-row { transition: background-color 1s var(--ease); }
+    .acc-row.reveal { transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), background-color 1s var(--ease); }
+    .acc-row.is-open { background: var(--carbon); }
+    .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 1s var(--ease); }
+    .acc-row.is-open .acc-panel { grid-template-rows: 1fr; }
+    .acc-panel > div { overflow: hidden; min-height: 0; }
+    .acc-panel-inner { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform 1s var(--ease); }
+    .acc-row.is-open .acc-panel-inner { opacity: 1; transform: none; transition-delay: .15s; }
+    .acc-icon { transition: transform 1s var(--ease), background-color .8s var(--ease), color .8s var(--ease), border-color .8s var(--ease); }
+    .acc-row.is-open .acc-icon { transform: rotate(135deg); background: var(--copper); color: var(--obsidian); border-color: var(--copper); }
+    .acc-title { transition: transform 1s var(--ease), color .8s var(--ease); }
+    .acc-row.is-open .acc-title { transform: translateX(clamp(0px, 2vw, 32px)); color: var(--copper); }
+
+    /* ---------- Testimonials ---------- */
+    .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    #reviewsTrack { cursor: grab; overscroll-behavior-x: contain; }
+    #reviewsTrack.is-dragging { cursor: grabbing; user-select: none; }
+    #reviewsTrack.is-dragging a { pointer-events: none; }
+    .frost {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(200, 155, 123, 0.2);
+    }
+    .review-card { transition: transform .9s var(--ease), border-color .8s var(--ease); }
+    .review-card:hover { border-color: rgba(200, 155, 123, 0.45); }
+
+    /* ---------- Custom cursor ---------- */
+    .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 95; border-radius: 9999px; opacity: 0; }
+    .has-cursor .cursor-dot, .has-cursor .cursor-ring { opacity: 1; }
+    .cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--copper); }
+    .cursor-ring {
+      width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgba(243, 243, 241, 0.35);
+      display: flex; align-items: center; justify-content: center;
+      transition: width .7s var(--ease), height .7s var(--ease), margin .7s var(--ease), background-color .7s var(--ease), border-color .7s var(--ease);
+    }
+    .cursor-ring span { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--obsidian); opacity: 0; transform: scale(.6); transition: opacity .5s var(--ease), transform .7s var(--ease); font-weight: 500; }
+    .cursor-ring.is-link { width: 64px; height: 64px; margin: -32px 0 0 -32px; border-color: rgba(200, 155, 123, 0.7); }
+    .cursor-ring.is-drag { width: 96px; height: 96px; margin: -48px 0 0 -48px; background: var(--copper); border-color: var(--copper); }
+    .cursor-ring.is-drag span { opacity: 1; transform: none; }
+    .has-cursor.cursor-in-drag .cursor-dot { opacity: 0; }
+    @media (hover: hover) and (pointer: fine) {
+      .has-cursor, .has-cursor a, .has-cursor button, .has-cursor #reviewsTrack { cursor: none; }
+    }
+
+    /* Map dark-mode */
+    .map-dark { filter: grayscale(1) invert(0.92) contrast(0.9) brightness(0.85); transition: filter 1.2s var(--ease); }
+    .map-wrap:hover .map-dark { filter: grayscale(0.6) invert(0.92) contrast(0.95) brightness(0.95) sepia(0.25); }
+
+    /* Footer big type */
+    .mega { font-size: clamp(2.4rem, 9.6vw, 40rem); line-height: 0.88; letter-spacing: -0.045em; white-space: nowrap; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
+      .reveal, .hero-fade { opacity: 1 !important; transform: none !important; }
+      .split-char { transform: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+  <noscript><style>#loader{display:none}.reveal,.hero-fade{opacity:1;transform:none}.split-char{transform:none}body.is-loading{overflow:auto}</style></noscript>
+</head>
+
+<body class="is-loading">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-copper focus:text-obsidian focus:px-4 focus:py-2 focus:rounded-full ui">Skip to content</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span>Drag</span></div>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader" class="fixed inset-0 z-[90] bg-obsidian flex flex-col justify-between p-6 md:p-10" aria-hidden="true">
+    <div class="flex justify-between ui text-mute">
+      <span>Graczyk</span><span>Łódź — PL</span>
+    </div>
+    <div>
+      <div class="flex items-end justify-between">
+        <p class="font-serif italic text-[clamp(1.5rem,3vw,3rem)] text-pearl/80">Salon fryzjerski</p>
+        <p class="font-serif text-[clamp(4rem,14vw,14rem)] leading-none tracking-tightest tabular-nums"><span id="loaderCount">0</span><span class="text-copper">%</span></p>
+      </div>
+      <div class="mt-6 h-px w-full bg-white/10 overflow-hidden"><div class="loader-bar h-full bg-copper"></div></div>
+    </div>
+  </div>
+
+  <!-- ============ [1] NAVIGATION ============ -->
+  <header id="siteHeader" class="fixed top-4 md:top-6 inset-x-0 z-50 mx-auto w-[min(1180px,calc(100%-1.5rem))]">
+    <nav class="glass rounded-full flex items-center justify-between pl-6 pr-2 py-2 md:pl-8" aria-label="Primary">
+      <a href="#top" class="font-serif text-[0.95rem] md:text-base tracking-[0.42em] text-pearl hover:text-copper transition-colors duration-700 ease-cine" aria-label="Graczyk — home">GRACZYK</a>
+
+      <ul class="hidden md:flex items-center gap-1">
+        <li><a href="#services" data-magnetic data-roll-host class="nav-link ui text-pearl/80 hover:text-pearl inline-block px-4 py-3"><span data-roll>Services</span></a></li>
+        <li><a href="#reviews" data-magnetic data-roll-host class="nav-link ui text-pearl/80 hover:text-pearl inline-block px-4 py-3"><span data-roll>Reviews</span></a></li>
+        <li><a href="#contact" data-magnetic data-roll-host class="nav-link ui text-pearl/80 hover:text-pearl inline-block px-4 py-3"><span data-roll>Contact</span></a></li>
+        <li class="ml-2">
+          <a href="tel:+48691218390" data-magnetic data-roll-host class="ui inline-flex items-center gap-3 rounded-full border border-copper/80 px-6 py-3 text-pearl hover:bg-copper hover:text-obsidian transition-colors duration-700 ease-cine">
+            <span data-roll>Book Now</span>
+            <span class="block h-1.5 w-1.5 rounded-full bg-copper"></span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex md:hidden items-center gap-2">
+        <a href="tel:+48691218390" class="ui rounded-full border border-copper/80 px-4 py-2.5 text-pearl">Book Now</a>
+        <button id="menuBtn" class="burger h-10 w-10 rounded-full border border-white/10 flex flex-col items-center justify-center gap-[4px]" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span class="block h-px w-4 bg-pearl"></span>
+          <span class="block h-px w-4 bg-pearl"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 bg-carbon md:hidden flex flex-col justify-between px-6 pt-32 pb-10" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <ul class="space-y-2">
+        <li class="overflow-hidden"><a href="#services" class="mm-link block font-serif text-[clamp(2.8rem,13vw,5rem)] leading-[1.05] tracking-tightest" style="transition-delay:.1s">Services</a></li>
+        <li class="overflow-hidden"><a href="#reviews" class="mm-link block font-serif italic text-[clamp(2.8rem,13vw,5rem)] leading-[1.05] tracking-tightest text-copper" style="transition-delay:.17s">Reviews</a></li>
+        <li class="overflow-hidden"><a href="#contact" class="mm-link block font-serif text-[clamp(2.8rem,13vw,5rem)] leading-[1.05] tracking-tightest" style="transition-delay:.24s">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="ui text-mute space-y-2">
+      <p>ul. Parcelacyjna 9, 91-141 Łódź</p>
+      <a href="tel:+48691218390" class="block text-pearl">+48 691 218 390</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============ [2] HERO ============ -->
+    <section id="top" class="relative h-[100svh] min-h-[560px] w-full overflow-hidden flex flex-col" aria-label="Introduction">
+      <!-- Cinematic background -->
+      <div class="absolute inset-0 -z-0" aria-hidden="true">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,#1d1712_0%,#050505_55%)]"></div>
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=2400&q=70" alt="" class="hero-photo absolute inset-0 h-full w-full object-cover opacity-[0.22] grayscale" onerror="this.remove()" />
+        <div class="hero-glow absolute inset-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-obsidian/70 via-obsidian/20 to-obsidian"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(5,5,5,0.85)_100%)]"></div>
+        <!-- fine vertical guides -->
+        <div class="absolute inset-0 mx-auto w-[min(1400px,calc(100%-3rem))] hidden lg:grid grid-cols-4">
+          <span class="border-l border-white/[0.04]"></span><span class="border-l border-white/[0.04]"></span><span class="border-l border-white/[0.04]"></span><span class="border-x border-white/[0.04]"></span>
+        </div>
+      </div>
+
+      <div class="relative z-10 flex-1 flex flex-col justify-end mx-auto w-[min(1400px,calc(100%-3rem))] pb-28 md:pb-32">
+        <p class="hero-fade ui text-copper mb-6 md:mb-10 flex items-center gap-4" style="transition-delay:.2s">
+          <span class="h-px w-10 bg-copper"></span> Est. in Łódź · Salon fryzjerski
+        </p>
+
+        <h1 class="text-pearl" aria-label="Graczyk — Salon Fryzjerski">
+          <span class="split-line text-[clamp(4.2rem,18.5vw,40rem)] leading-[0.82] tracking-tightest" data-split data-line="0" aria-hidden="true">GRACZYK</span>
+          <span class="split-line text-[clamp(1.55rem,7.3vw,16rem)] leading-[0.95] tracking-[-0.03em] italic text-pearl/90 md:text-right md:-mt-[0.1em]" data-split data-line="1" aria-hidden="true"><span class="text-copper not-italic">/</span>&nbsp;SALON FRYZJERSKI</span>
+        </h1>
+
+        <div class="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <p class="hero-fade font-serif italic text-[clamp(1.15rem,1rem+1vw,2.2rem)] text-pearl/85" style="transition-delay:1.55s">
+            Precision. Atmosphere. Mastery.
+          </p>
+          <div class="hero-fade flex items-center gap-6 ui text-mute" style="transition-delay:1.75s">
+            <span class="flex items-center gap-2"><span class="text-copper">★</span> 5.0 Google</span>
+            <span class="h-3 w-px bg-white/20"></span>
+            <span>Parcelacyjna 9, Łódź</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-6 inset-x-0 z-10 flex justify-center">
+        <a href="#about" class="hero-fade flex flex-col items-center gap-3 ui text-mute hover:text-pearl" style="transition-delay:2s" aria-label="Scroll to content">
+          <span class="text-[10px]">Scroll</span>
+          <span class="relative block h-16 w-px bg-white/10 overflow-hidden"><span class="scroll-line absolute inset-0 bg-copper"></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Marquee band -->
+    <div class="relative border-y border-white/5 py-5 md:py-7 overflow-hidden" aria-hidden="true">
+      <div class="marquee-track flex w-max whitespace-nowrap font-serif italic text-[clamp(1.6rem,4vw,4.5rem)] text-pearl/80">
+        <span class="flex items-center gap-10 pr-10">Precision <span class="text-copper not-italic">✦</span> Atmosphere <span class="text-copper not-italic">✦</span> Mastery <span class="text-copper not-italic">✦</span> Łódź <span class="text-copper not-italic">✦</span> Precision <span class="text-copper not-italic">✦</span> Atmosphere <span class="text-copper not-italic">✦</span> Mastery <span class="text-copper not-italic">✦</span> Łódź <span class="text-copper not-italic">✦</span></span>
+        <span class="flex items-center gap-10 pr-10">Precision <span class="text-copper not-italic">✦</span> Atmosphere <span class="text-copper not-italic">✦</span> Mastery <span class="text-copper not-italic">✦</span> Łódź <span class="text-copper not-italic">✦</span> Precision <span class="text-copper not-italic">✦</span> Atmosphere <span class="text-copper not-italic">✦</span> Mastery <span class="text-copper not-italic">✦</span> Łódź <span class="text-copper not-italic">✦</span></span>
+      </div>
+    </div>
+
+    <!-- ============ [3] THE VIBE & ABOUT — BENTO ============ -->
+    <section id="about" class="relative py-[clamp(5rem,12vw,12rem)]" aria-labelledby="about-title">
+      <div class="mx-auto w-[min(1400px,calc(100%-3rem))]">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+          <div>
+            <p class="reveal ui text-mute mb-5">(01) — The Vibe</p>
+            <h2 id="about-title" class="reveal text-[clamp(2.4rem,6vw,7rem)] leading-[0.95]">A ritual, <em class="text-copper">not</em> a chore.</h2>
+          </div>
+          <p class="reveal max-w-sm text-mute leading-relaxed text-[clamp(0.95rem,0.9rem+0.2vw,1.1rem)]">An intimate neighbourhood salon in Łódź where every appointment is unhurried, considered and finished to perfection.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(170px,auto)]">
+          <!-- Box 1 — large statement -->
+          <article class="reveal spot md:col-span-6 lg:col-span-7 lg:row-span-2 rounded-[28px] bg-carbon border border-white/5 p-8 md:p-12 flex flex-col justify-between overflow-hidden min-h-[380px]">
+            <div class="flex items-center justify-between ui text-mute">
+              <span>What guests feel</span>
+              <span class="h-8 w-8 rounded-full border border-white/10 grid place-items-center text-copper">“</span>
+            </div>
+            <h3 class="text-[clamp(2.2rem,4.6vw,5.6rem)] leading-[0.98] tracking-tightest mt-10">
+              Wonderful <em class="text-copper">atmosphere</em><br class="hidden sm:block" /> and expert advice.
+            </h3>
+            <p class="mt-8 max-w-md text-mute leading-relaxed">From the first consultation to the final finish — honest guidance on what suits you, delivered in a space designed to slow you down.</p>
+          </article>
+
+          <!-- Box 2 — image -->
+          <figure class="reveal bento-img-wrap md:col-span-6 lg:col-span-5 lg:row-span-3 relative rounded-[28px] overflow-hidden border border-white/5 min-h-[420px] bg-[linear-gradient(135deg,#1c1612,#0b0b0b_60%,#1a1411)]" style="transition-delay:.12s">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=75" alt="Warm, dimly lit interior of a high-end hair salon with styling chairs and mirrors" loading="lazy" class="bento-photo absolute inset-0 h-full w-full object-cover grayscale-[35%] brightness-[0.75]" onerror="this.remove()" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/10 to-transparent"></div>
+            <figcaption class="absolute inset-x-0 bottom-0 p-8 flex items-end justify-between">
+              <div>
+                <p class="ui text-copper mb-2">The Studio</p>
+                <p class="font-serif text-[clamp(1.5rem,2.2vw,2.4rem)] leading-tight">Parcelacyjna 9</p>
+              </div>
+              <span class="ui text-mute">Łódź</span>
+            </figcaption>
+          </figure>
+
+          <!-- Box 3 — stats -->
+          <article class="reveal spot md:col-span-6 lg:col-span-7 rounded-[28px] bg-carbon border border-white/5 p-8 md:p-10 grid grid-cols-2 gap-6 overflow-hidden" style="transition-delay:.18s">
+            <div class="flex flex-col justify-between">
+              <p class="ui text-mute">Rating</p>
+              <div>
+                <p class="font-serif text-[clamp(3.6rem,7vw,8rem)] leading-none tracking-tightest"><span data-count="5" data-decimals="1">0.0</span></p>
+                <div class="mt-3 flex gap-1 text-copper" aria-label="5 out of 5 stars">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between border-l border-white/5 pl-6">
+              <p class="ui text-mute">Verified</p>
+              <div>
+                <p class="font-serif text-[clamp(3.6rem,7vw,8rem)] leading-none tracking-tightest"><span data-count="32">0</span></p>
+                <p class="mt-3 ui text-pearl/80">Google Reviews</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Box 4 — hours -->
+          <article class="reveal spot md:col-span-3 lg:col-span-3 rounded-[28px] bg-carbon border border-white/5 p-8 flex flex-col justify-between overflow-hidden" style="transition-delay:.24s">
+            <p class="ui text-mute flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-copper opacity-60 animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-copper"></span></span> Thursday</p>
+            <div>
+              <p class="font-serif text-[clamp(2.4rem,3.6vw,4rem)] leading-none tracking-tightest">10:00</p>
+              <p class="mt-2 ui text-pearl/70">Doors open</p>
+            </div>
+          </article>
+
+          <!-- Box 5 — call -->
+          <a href="tel:+48691218390" class="reveal spot group md:col-span-3 lg:col-span-4 rounded-[28px] bg-copper text-obsidian p-8 flex flex-col justify-between overflow-hidden" style="transition-delay:.3s" data-roll-host>
+            <div class="flex items-center justify-between">
+              <p class="ui">Reserve your chair</p>
+              <span class="h-10 w-10 rounded-full border border-obsidian/30 grid place-items-center transition-transform duration-1000 ease-cine group-hover:rotate-[-45deg]" aria-hidden="true">→</span>
+            </div>
+            <p class="font-serif text-[clamp(1.6rem,2.4vw,2.6rem)] leading-none tracking-tight"><span data-roll>+48 691 218 390</span></p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ [4] SERVICES — ACCORDION ============ -->
+    <section id="services" class="relative py-[clamp(5rem,10vw,10rem)] border-t border-white/5" aria-labelledby="services-title">
+      <div class="mx-auto w-[min(1400px,calc(100%-3rem))]">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-20">
+          <div>
+            <p class="reveal ui text-mute mb-5">(02) — Services</p>
+            <h2 id="services-title" class="reveal text-[clamp(2.4rem,6vw,7rem)] leading-[0.95]">The <em class="text-copper">craft</em> menu.</h2>
+          </div>
+          <p class="reveal max-w-sm text-mute leading-relaxed">Hover or tap a service to explore. Every visit begins with a consultation — no rush, no compromise.</p>
+        </div>
+      </div>
+
+      <!-- NOTE: prices below are indicative placeholders — update with the salon's real price list. -->
+      <div id="accordion" class="border-t border-white/10">
+        <!-- Row 1 -->
+        <article class="acc-row reveal border-b border-white/10">
+          <h3 class="m-0">
+            <button class="acc-trigger w-full text-left" aria-expanded="false" aria-controls="acc-p1" id="acc-t1">
+              <span class="mx-auto w-[min(1400px,calc(100%-3rem))] flex items-center gap-6 md:gap-10 py-7 md:py-10">
+                <span class="ui text-mute w-8 shrink-0">01</span>
+                <span class="acc-title flex-1 font-serif text-[clamp(1.9rem,5vw,5.5rem)] leading-none tracking-tightest">Men's Haircut</span>
+                <span class="hidden lg:block ui text-mute">45 — 60 min</span>
+                <span class="acc-icon h-11 w-11 md:h-14 md:w-14 shrink-0 rounded-full border border-white/15 grid place-items-center text-xl font-light" aria-hidden="true">+</span>
+              </span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-p1" role="region" aria-labelledby="acc-t1">
+            <div>
+              <div class="acc-panel-inner mx-auto w-[min(1400px,calc(100%-3rem))] grid md:grid-cols-12 gap-8 pb-10 md:pb-14 md:pl-[4.5rem]">
+                <p class="md:col-span-5 text-mute leading-relaxed text-[clamp(1rem,0.95rem+0.25vw,1.2rem)]">Precision cuts tailored to your head shape, growth pattern and lifestyle — from timeless classics to razor-sharp fades, finished with styling advice you can recreate at home.</p>
+                <ul class="md:col-span-6 md:col-start-7 divide-y divide-white/10 border-y border-white/10">
+                  <li class="flex items-baseline justify-between py-4"><span>Classic cut &amp; style</span><span class="font-serif text-xl text-copper">od 60 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Skin fade &amp; detailing</span><span class="font-serif text-xl text-copper">od 80 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Cut + beard sculpt</span><span class="font-serif text-xl text-copper">od 100 zł</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Row 2 -->
+        <article class="acc-row reveal border-b border-white/10">
+          <h3 class="m-0">
+            <button class="acc-trigger w-full text-left" aria-expanded="false" aria-controls="acc-p2" id="acc-t2">
+              <span class="mx-auto w-[min(1400px,calc(100%-3rem))] flex items-center gap-6 md:gap-10 py-7 md:py-10">
+                <span class="ui text-mute w-8 shrink-0">02</span>
+                <span class="acc-title flex-1 font-serif text-[clamp(1.9rem,5vw,5.5rem)] leading-none tracking-tightest">Women's Styling</span>
+                <span class="hidden lg:block ui text-mute">60 — 120 min</span>
+                <span class="acc-icon h-11 w-11 md:h-14 md:w-14 shrink-0 rounded-full border border-white/15 grid place-items-center text-xl font-light" aria-hidden="true">+</span>
+              </span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-p2" role="region" aria-labelledby="acc-t2">
+            <div>
+              <div class="acc-panel-inner mx-auto w-[min(1400px,calc(100%-3rem))] grid md:grid-cols-12 gap-8 pb-10 md:pb-14 md:pl-[4.5rem]">
+                <p class="md:col-span-5 text-mute leading-relaxed text-[clamp(1rem,0.95rem+0.25vw,1.2rem)]">Sculpted cuts, effortless blow-dries and occasion styling. We read texture and movement to create shapes that grow out beautifully and feel unmistakably yours.</p>
+                <ul class="md:col-span-6 md:col-start-7 divide-y divide-white/10 border-y border-white/10">
+                  <li class="flex items-baseline justify-between py-4"><span>Cut &amp; blow-dry</span><span class="font-serif text-xl text-copper">od 120 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Blow-dry &amp; finish</span><span class="font-serif text-xl text-copper">od 80 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Occasion &amp; bridal styling</span><span class="font-serif text-xl text-copper">od 180 zł</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Row 3 -->
+        <article class="acc-row reveal border-b border-white/10">
+          <h3 class="m-0">
+            <button class="acc-trigger w-full text-left" aria-expanded="false" aria-controls="acc-p3" id="acc-t3">
+              <span class="mx-auto w-[min(1400px,calc(100%-3rem))] flex items-center gap-6 md:gap-10 py-7 md:py-10">
+                <span class="ui text-mute w-8 shrink-0">03</span>
+                <span class="acc-title flex-1 font-serif text-[clamp(1.9rem,5vw,5.5rem)] leading-none tracking-tightest">Hair Coloring</span>
+                <span class="hidden lg:block ui text-mute">90 — 240 min</span>
+                <span class="acc-icon h-11 w-11 md:h-14 md:w-14 shrink-0 rounded-full border border-white/15 grid place-items-center text-xl font-light" aria-hidden="true">+</span>
+              </span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-t3">
+            <div>
+              <div class="acc-panel-inner mx-auto w-[min(1400px,calc(100%-3rem))] grid md:grid-cols-12 gap-8 pb-10 md:pb-14 md:pl-[4.5rem]">
+                <p class="md:col-span-5 text-mute leading-relaxed text-[clamp(1rem,0.95rem+0.25vw,1.2rem)]">Dimensional colour designed around your skin tone — soft balayage, rich glosses, precise root work and full transformations, always with hair health first.</p>
+                <ul class="md:col-span-6 md:col-start-7 divide-y divide-white/10 border-y border-white/10">
+                  <li class="flex items-baseline justify-between py-4"><span>Root colour</span><span class="font-serif text-xl text-copper">od 160 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Full colour &amp; gloss</span><span class="font-serif text-xl text-copper">od 220 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Balayage / highlights</span><span class="font-serif text-xl text-copper">od 350 zł</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Row 4 -->
+        <article class="acc-row reveal border-b border-white/10">
+          <h3 class="m-0">
+            <button class="acc-trigger w-full text-left" aria-expanded="false" aria-controls="acc-p4" id="acc-t4">
+              <span class="mx-auto w-[min(1400px,calc(100%-3rem))] flex items-center gap-6 md:gap-10 py-7 md:py-10">
+                <span class="ui text-mute w-8 shrink-0">04</span>
+                <span class="acc-title flex-1 font-serif text-[clamp(1.9rem,5vw,5.5rem)] leading-none tracking-tightest">Professional Care</span>
+                <span class="hidden lg:block ui text-mute">30 — 90 min</span>
+                <span class="acc-icon h-11 w-11 md:h-14 md:w-14 shrink-0 rounded-full border border-white/15 grid place-items-center text-xl font-light" aria-hidden="true">+</span>
+              </span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-t4">
+            <div>
+              <div class="acc-panel-inner mx-auto w-[min(1400px,calc(100%-3rem))] grid md:grid-cols-12 gap-8 pb-10 md:pb-14 md:pl-[4.5rem]">
+                <p class="md:col-span-5 text-mute leading-relaxed text-[clamp(1rem,0.95rem+0.25vw,1.2rem)]">Restorative rituals for scalp and lengths — deep reconstruction, smoothing and bespoke treatments that bring back strength, softness and shine.</p>
+                <ul class="md:col-span-6 md:col-start-7 divide-y divide-white/10 border-y border-white/10">
+                  <li class="flex items-baseline justify-between py-4"><span>Scalp ritual &amp; massage</span><span class="font-serif text-xl text-copper">od 90 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Reconstruction treatment</span><span class="font-serif text-xl text-copper">od 120 zł</span></li>
+                  <li class="flex items-baseline justify-between py-4"><span>Keratin smoothing</span><span class="font-serif text-xl text-copper">od 300 zł</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="mx-auto w-[min(1400px,calc(100%-3rem))] mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p class="reveal ui text-mute">Indicative pricing · final quote after consultation</p>
+        <div class="reveal self-start"><a href="tel:+48691218390" data-magnetic data-roll-host class="ui inline-flex items-center gap-3 rounded-full border border-copper/80 px-7 py-4 hover:bg-copper hover:text-obsidian transition-colors duration-700 ease-cine"><span data-roll>Book an appointment</span><span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <!-- ============ [5] TESTIMONIALS — DRAGGABLE CAROUSEL ============ -->
+    <section id="reviews" class="relative py-[clamp(5rem,10vw,10rem)] border-t border-white/5 overflow-hidden" aria-labelledby="reviews-title">
+      <!-- ambient glow behind the frosted cards -->
+      <div class="pointer-events-none absolute left-[10%] top-1/2 h-[40vw] w-[40vw] -translate-y-1/2 rounded-full bg-copper/[0.12] blur-[120px]" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute right-[5%] bottom-0 h-[28vw] w-[28vw] rounded-full bg-[#6b4a35]/20 blur-[120px]" aria-hidden="true"></div>
+
+      <div class="relative mx-auto w-[min(1400px,calc(100%-3rem))] flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+        <div>
+          <p class="reveal ui text-mute mb-5">(03) — Reviews</p>
+          <h2 id="reviews-title" class="reveal text-[clamp(2.4rem,6vw,7rem)] leading-[0.95]">In their <em class="text-copper">words.</em></h2>
+        </div>
+        <div class="reveal flex items-center gap-3">
+          <button id="revPrev" class="h-12 w-12 rounded-full border border-white/15 grid place-items-center hover:border-copper hover:text-copper transition-colors duration-700 ease-cine" aria-label="Previous review">←</button>
+          <button id="revNext" class="h-12 w-12 rounded-full border border-white/15 grid place-items-center hover:border-copper hover:text-copper transition-colors duration-700 ease-cine" aria-label="Next review">→</button>
+        </div>
+      </div>
+
+      <div id="reviewsTrack" data-cursor="drag" tabindex="0" aria-label="Reviews carousel — drag or use arrow keys" class="reveal relative no-scrollbar overflow-x-auto flex gap-4 md:gap-6 px-[max(1.5rem,calc((100vw-1400px)/2))] pb-4 select-none">
+        <!-- Featured review -->
+        <article class="review-card frost shrink-0 w-[clamp(290px,38vw,560px)] rounded-[28px] p-8 md:p-12 flex flex-col justify-between min-h-[420px]">
+          <div class="flex items-center justify-between">
+            <div class="flex gap-1.5" role="img" aria-label="Rated 5 out of 5">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="#C89B7B" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="#C89B7B" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="#C89B7B" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="#C89B7B" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="#C89B7B" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+            </div>
+            <span class="ui text-mute">Google Review</span>
+          </div>
+          <blockquote class="my-10">
+            <p class="font-serif italic text-[clamp(4.5rem,9vw,10rem)] leading-none tracking-tightest">“Super.”</p>
+          </blockquote>
+          <footer class="flex items-center gap-4">
+            <span class="h-12 w-12 rounded-full bg-copper/15 border border-copper/30 grid place-items-center font-serif text-copper text-lg">НС</span>
+            <div>
+              <p class="text-pearl">Неля Савченко</p>
+              <p class="ui text-mute mt-1">Verified guest</p>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Highlight -->
+        <article class="review-card frost shrink-0 w-[clamp(290px,34vw,500px)] rounded-[28px] p-8 md:p-12 flex flex-col justify-between min-h-[420px]">
+          <span class="ui text-copper">Most mentioned</span>
+          <blockquote class="my-10">
+            <p class="font-serif text-[clamp(1.9rem,3vw,3.2rem)] leading-[1.05] tracking-tight">“Wonderful atmosphere and <em class="text-copper">expert advice.</em>”</p>
+          </blockquote>
+          <p class="ui text-mute">Highlight from Google Reviews</p>
+        </article>
+
+        <!-- Rating summary -->
+        <article class="review-card frost shrink-0 w-[clamp(290px,30vw,440px)] rounded-[28px] p-8 md:p-12 flex flex-col justify-between min-h-[420px]">
+          <span class="ui text-mute">Overall rating</span>
+          <div>
+            <p class="font-serif text-[clamp(5rem,10vw,11rem)] leading-none tracking-tightest">5.0</p>
+            <div class="mt-4 h-px w-full bg-white/10"><div class="h-full w-full bg-copper"></div></div>
+          </div>
+          <p class="text-mute leading-relaxed">A perfect score across <span class="text-pearl">32 verified reviews</span> on Google.</p>
+        </article>
+
+        <!-- CTA: read reviews -->
+        <a href="https://www.google.com/maps/search/?api=1&query=Graczyk+salon+fryzjerski+Parcelacyjna+9+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener" class="review-card frost group shrink-0 w-[clamp(290px,30vw,440px)] rounded-[28px] p-8 md:p-12 flex flex-col justify-between min-h-[420px]">
+          <span class="ui text-mute">Google Maps</span>
+          <p class="font-serif text-[clamp(2.2rem,3.6vw,4rem)] leading-[1] tracking-tightest">Read all <em class="text-copper">32</em> reviews.</p>
+          <span class="ui inline-flex items-center gap-3 text-pearl">Open on Google <span class="inline-block transition-transform duration-1000 ease-cine group-hover:translate-x-2" aria-hidden="true">↗</span></span>
+        </a>
+
+        <!-- CTA: leave a review -->
+        <a href="https://www.google.com/maps/search/?api=1&query=Graczyk+salon+fryzjerski+Parcelacyjna+9+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener" class="review-card group shrink-0 w-[clamp(290px,30vw,440px)] rounded-[28px] p-8 md:p-12 flex flex-col justify-between min-h-[420px] bg-copper text-obsidian">
+          <span class="ui">Been in our chair?</span>
+          <p class="font-serif italic text-[clamp(2.2rem,3.6vw,4rem)] leading-[1] tracking-tightest">Share your experience.</p>
+          <span class="ui inline-flex items-center gap-3">Leave a review <span class="inline-block transition-transform duration-1000 ease-cine group-hover:translate-x-2" aria-hidden="true">→</span></span>
+        </a>
+      </div>
+
+      <div class="relative mx-auto w-[min(1400px,calc(100%-3rem))] mt-10 flex items-center gap-6">
+        <span class="ui text-mute shrink-0">Drag</span>
+        <div class="h-px flex-1 bg-white/10 overflow-hidden"><div id="revProgress" class="h-full bg-copper origin-left" style="transform:scaleX(0.2)"></div></div>
+        <span class="ui text-mute shrink-0">5.0 ★</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ [6] FOOTER & LOCATION ============ -->
+  <footer id="contact" class="relative border-t border-white/5 pt-[clamp(5rem,10vw,10rem)] overflow-hidden" aria-labelledby="contact-title">
+    <div class="mx-auto w-[min(1400px,calc(100%-3rem))]">
+      <p class="reveal ui text-mute mb-8">(04) — Visit</p>
+      <h2 id="contact-title" class="sr-only">Contact &amp; location</h2>
+    </div>
+
+    <!-- Massive address -->
+    <div class="px-[clamp(1rem,2vw,2.5rem)]" aria-hidden="true">
+      <p class="reveal mega font-serif text-pearl">ŁÓDŹ,</p>
+      <p class="reveal mega font-serif italic text-copper text-right" style="transition-delay:.12s">PARCELACYJNA 9</p>
+    </div>
+
+    <div class="mx-auto w-[min(1400px,calc(100%-3rem))] mt-[clamp(4rem,8vw,8rem)] grid lg:grid-cols-12 gap-12 lg:gap-8">
+      <!-- Contact block -->
+      <div class="lg:col-span-6 flex flex-col justify-between gap-12">
+        <div>
+          <p class="reveal ui text-mute mb-4">Call to book</p>
+          <a href="tel:+48691218390" data-roll-host class="reveal block font-serif text-[clamp(2.3rem,6.4vw,8rem)] leading-none tracking-tightest text-pearl" aria-label="Call +48 691 218 390">
+            <span data-roll data-roll-stagger="0.025">+48 691 218 390</span>
+          </a>
+        </div>
+
+        <address class="not-italic grid sm:grid-cols-2 gap-8">
+          <div class="reveal">
+            <p class="ui text-mute mb-3">Address</p>
+            <p class="text-pearl leading-relaxed">ul. Parcelacyjna 9<br />91-141 Łódź, Poland</p>
+            <p class="ui text-mute mt-3">Plus Code · Q9VR+MH Łódź</p>
+          </div>
+          <div class="reveal" style="transition-delay:.1s">
+            <p class="ui text-mute mb-3">Hours</p>
+            <p class="text-pearl leading-relaxed">Thursday — opens 10:00</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Parcelacyjna+9%2C+91-141+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener" data-roll-host class="nav-link ui text-copper inline-block mt-3"><span data-roll>Get directions ↗</span></a>
+          </div>
+        </address>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal lg:col-span-6 map-wrap relative rounded-[28px] overflow-hidden border border-white/5 bg-carbon min-h-[360px] lg:min-h-[460px]" style="transition-delay:.15s">
+        <iframe
+          class="map-dark absolute inset-0 h-full w-full"
+          title="Map — Graczyk salon fryzjerski, ul. Parcelacyjna 9, Łódź (Q9VR+MH)"
+          src="https://maps.google.com/maps?q=Parcelacyjna%209%2C%2091-141%20%C5%81%C3%B3d%C5%BA&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-copper/10"></div>
+        <div class="pointer-events-none absolute left-4 top-4 glass rounded-full px-4 py-2 ui text-pearl flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> Q9VR+MH Łódź
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mx-auto w-[min(1400px,calc(100%-3rem))] mt-[clamp(4rem,8vw,8rem)] py-8 border-t border-white/10 flex flex-col md:flex-row gap-4 md:items-center md:justify-between ui text-mute">
+      <p>© <span id="year">2026</span> Graczyk — salon fryzjerski</p>
+      <p class="hidden md:block">Precision. Atmosphere. Mastery.</p>
+      <a href="#top" data-roll-host class="nav-link self-start md:self-auto text-pearl"><span data-roll>Back to top ↑</span></a>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const body = document.body;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Split hero text into chars ---------- */
+    document.querySelectorAll('[data-split]').forEach((line) => {
+      const lineIdx = +line.dataset.line || 0;
+      let i = 0;
+      const walk = (node) => {
+        [...node.childNodes].forEach((child) => {
+          if (child.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            [...child.textContent].forEach((ch) => {
+              const s = document.createElement('span');
+              s.className = 'split-char';
+              s.textContent = ch === ' ' ? '\u00A0' : ch;
+              s.style.transitionDelay = (0.15 + lineIdx * 0.22 + i * 0.035).toFixed(3) + 's';
+              i++;
+              frag.appendChild(s);
+            });
+            child.replaceWith(frag);
+          } else if (child.nodeType === 1) walk(child);
+        });
+      };
+      walk(line);
+    });
+
+    /* ---------- Rolling text (slide-up replace) ---------- */
+    document.querySelectorAll('[data-roll]').forEach((el) => {
+      const text = el.textContent;
+      const stagger = parseFloat(el.dataset.rollStagger || '0.015');
+      el.textContent = '';
+      const sr = document.createElement('span');
+      sr.className = 'sr-only';
+      sr.textContent = text;
+      el.appendChild(sr);
+      [...text].forEach((ch, i) => {
+        const c = ch === ' ' ? '\u00A0' : ch;
+        const rc = document.createElement('span');
+        rc.className = 'rc';
+        rc.setAttribute('aria-hidden', 'true');
+        rc.innerHTML = `<span style="--d:${(i * stagger).toFixed(3)}s"><span>${c}</span><span>${c}</span></span>`;
+        el.appendChild(rc);
+      });
+    });
+
+    /* ---------- Loader → hero intro ---------- */
+    const loader = document.getElementById('loader');
+    const countEl = document.getElementById('loaderCount');
+    const startHero = () => document.getElementById('top').classList.add('hero-ready');
+    const finishLoad = () => {
+      body.classList.add('is-loaded');
+      body.classList.remove('is-loading');
+      setTimeout(startHero, 350);
+      setTimeout(() => loader.remove(), 1400);
+    };
+    if (reduce) {
+      loader.remove(); body.classList.remove('is-loading'); startHero();
+    } else {
+      const dur = 1300, t0 = performance.now();
+      const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur), e = ease(p);
+        countEl.textContent = Math.round(e * 100);
+        loader.style.setProperty('--p', e);
+        if (p < 1) requestAnimationFrame(tick); else setTimeout(finishLoad, 200);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    /* ---------- Intersection Observer reveals ---------- */
+    const counters = new WeakSet();
+    const runCount = (el) => {
+      if (counters.has(el)) return; counters.add(el);
+      const target = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0);
+      if (reduce) { el.textContent = target.toFixed(dec); return; }
+      const t0 = performance.now(), dur = 1800;
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+        el.textContent = (target * e).toFixed(dec);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        entry.target.querySelectorAll('[data-count]').forEach(runCount);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    /* ---------- Fit massive footer address to full viewport width ---------- */
+    const megas = [...document.querySelectorAll('.mega')];
+    const fitMega = () => {
+      if (!megas.length) return;
+      megas.forEach((m) => { m.style.fontSize = '100px'; m.style.width = 'max-content'; });
+      const widths = megas.map((m) => m.getBoundingClientRect().width);
+      megas.forEach((m) => (m.style.width = ''));
+      const pcs = getComputedStyle(megas[0].parentElement);
+      const avail = megas[0].parentElement.clientWidth - parseFloat(pcs.paddingLeft) - parseFloat(pcs.paddingRight);
+      const size = Math.max(36, (avail / Math.max(...widths)) * 100 * 0.98);
+      megas.forEach((m) => (m.style.fontSize = size + 'px'));
+    };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(fitMega);
+    window.addEventListener('resize', fitMega);
+
+    /* ---------- Header hide/show on scroll ---------- */
+    const header = document.getElementById('siteHeader');
+    let lastY = window.scrollY, ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const menuOpen = body.classList.contains('menu-open');
+        header.classList.toggle('is-hidden', !menuOpen && y > lastY && y > 200);
+        lastY = y; ticking = false;
+      });
+    }, { passive: true });
+
+    /* ---------- Mobile menu ---------- */
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const setMenu = (open) => {
+      body.classList.toggle('menu-open', open);
+      menu.classList.toggle('is-open', open);
+      menu.setAttribute('aria-hidden', String(!open));
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      body.style.overflow = open ? 'hidden' : '';
+    };
+    menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    /* ---------- Hero glow follows pointer ---------- */
+    const hero = document.getElementById('top');
+    const glow = hero.querySelector('.hero-glow');
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      glow.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      glow.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+
+    /* ---------- Bento spotlight ---------- */
+    document.querySelectorAll('.spot').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    /* ---------- Accordion (click + hover intent) ---------- */
+    const rows = [...document.querySelectorAll('.acc-row')];
+    const accordion = document.getElementById('accordion');
+    let pinned = null, hoverTimer;
+    const openRow = (row) => rows.forEach((r) => {
+      const on = r === row;
+      r.classList.toggle('is-open', on);
+      r.querySelector('.acc-trigger').setAttribute('aria-expanded', String(on));
+    });
+    rows.forEach((row) => {
+      row.querySelector('.acc-trigger').addEventListener('click', () => {
+        pinned = row.classList.contains('is-open') && pinned === row ? null : row;
+        openRow(pinned);
+      });
+      if (finePointer) {
+        row.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          hoverTimer = setTimeout(() => openRow(row), 120);
+        });
+      }
+    });
+    if (finePointer) {
+      accordion.addEventListener('mouseleave', () => {
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(() => openRow(pinned), 200);
+      });
+    }
+
+    /* ---------- Draggable physics carousel ---------- */
+    const track = document.getElementById('reviewsTrack');
+    const cards = [...track.querySelectorAll('.review-card')];
+    const progress = document.getElementById('revProgress');
+    let isDown = false, startX = 0, startScroll = 0, lastX = 0, lastT = 0, vel = 0, moved = 0, raf = null;
+    const maxScroll = () => track.scrollWidth - track.clientWidth;
+    const skew = (v) => {
+      if (reduce) return;
+      const s = Math.max(-6, Math.min(6, v * 0.25));
+      cards.forEach((c) => (c.style.transform = `skewX(${s}deg)`));
+    };
+    const updateProgress = () => {
+      const m = maxScroll();
+      const p = m > 0 ? track.scrollLeft / m : 1;
+      progress.style.transform = `scaleX(${Math.max(0.08, p)})`;
+    };
+    const momentum = () => {
+      track.scrollLeft -= vel;
+      vel *= 0.94;
+      skew(vel);
+      const atEdge = track.scrollLeft <= 0 || track.scrollLeft >= maxScroll() - 1;
+      if (Math.abs(vel) > 0.4 && !atEdge) raf = requestAnimationFrame(momentum);
+      else { vel = 0; skew(0); }
+    };
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      isDown = true; moved = 0; vel = 0;
+      cancelAnimationFrame(raf);
+      startX = lastX = e.clientX; lastT = performance.now();
+      startScroll = track.scrollLeft;
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      if (moved > 4) track.classList.add('is-dragging');
+      track.scrollLeft = startScroll - dx;
+      const now = performance.now(), dt = Math.max(1, now - lastT);
+      vel = vel * 0.6 + ((e.clientX - lastX) / dt) * 16 * 0.4;
+      lastX = e.clientX; lastT = now;
+      skew(vel);
+    });
+    const endDrag = () => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove('is-dragging');
+      raf = requestAnimationFrame(momentum);
+    };
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('click', (e) => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+    track.addEventListener('dragstart', (e) => e.preventDefault());
+    track.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    const glideBy = (dir) => {
+      const step = (cards[0].getBoundingClientRect().width + 24) * dir;
+      track.scrollBy({ left: step, behavior: reduce ? 'auto' : 'smooth' });
+    };
+    document.getElementById('revPrev').addEventListener('click', () => glideBy(-1));
+    document.getElementById('revNext').addEventListener('click', () => glideBy(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); glideBy(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); glideBy(-1); }
+    });
+
+    /* ---------- Custom cursor + magnetic elements (fine pointers only) ---------- */
+    if (finePointer && !reduce) {
+      const dot = document.querySelector('.cursor-dot');
+      const ring = document.querySelector('.cursor-ring');
+      let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, shown = false;
+      window.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        mx = e.clientX; my = e.clientY;
+        if (!shown) { shown = true; rx = mx; ry = my; body.classList.add('has-cursor'); }
+        dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+      });
+      document.addEventListener('mouseleave', () => { body.classList.remove('has-cursor'); shown = false; });
+      const loop = () => {
+        rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+        ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+        requestAnimationFrame(loop);
+      };
+      loop();
+
+      document.addEventListener('pointerover', (e) => {
+        const drag = e.target.closest('[data-cursor="drag"]');
+        const link = e.target.closest('a, button');
+        ring.classList.toggle('is-drag', !!drag);
+        body.classList.toggle('cursor-in-drag', !!drag);
+        ring.classList.toggle('is-link', !drag && !!link);
+      });
+
+      document.querySelectorAll('[data-magnetic]').forEach((el) => {
+        const strength = 0.35;
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - (r.left + r.width / 2)) * strength;
+          const y = (e.clientY - (r.top + r.height / 2)) * strength;
+          el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+        el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
