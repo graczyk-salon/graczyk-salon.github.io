@@ -427,10 +427,16 @@
 
           <!-- Box 4 — hours -->
           <article class="reveal spot md:col-span-3 lg:col-span-3 rounded-[28px] bg-carbon border border-white/5 p-8 flex flex-col justify-between overflow-hidden" style="transition-delay:.24s">
-            <p class="ui text-mute flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-copper opacity-60 animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-copper"></span></span> Czwartek</p>
+            <p class="ui text-mute flex items-center gap-2">
+              <span class="relative flex h-2 w-2">
+                <span id="hoursPing" class="absolute inline-flex h-full w-full rounded-full bg-copper opacity-60 animate-ping"></span>
+                <span id="hoursDot" class="relative inline-flex h-2 w-2 rounded-full bg-copper"></span>
+              </span>
+              <span id="hoursDayLabel">Czwartek</span>
+            </p>
             <div>
-              <p class="font-serif text-[clamp(2.4rem,3.6vw,4rem)] leading-none tracking-tightest">10:00</p>
-              <p class="mt-2 ui text-pearl/70">Otwarcie salonu</p>
+              <p id="hoursMainTime" class="font-serif text-[clamp(2.1rem,3.1vw,3.4rem)] leading-none tracking-tightest">10:00–20:00</p>
+              <p id="hoursSubStatus" class="mt-2 ui text-pearl/70">Otwarcie o 10:00</p>
             </div>
           </article>
 
@@ -686,7 +692,12 @@
           </div>
           <div class="reveal" style="transition-delay:.1s">
             <p class="ui text-mute mb-3">Godziny otwarcia</p>
-            <p class="text-pearl leading-relaxed">Czwartek — od 10:00</p>
+            <ul class="text-pearl leading-relaxed space-y-1 text-sm md:text-base">
+              <li class="flex justify-between gap-4"><span class="text-mute">Wtorek – Piątek</span><span>10:00 – 20:00</span></li>
+              <li class="flex justify-between gap-4"><span class="text-mute">Sobota</span><span>10:00 – 17:00</span></li>
+              <li class="flex justify-between gap-4"><span class="text-mute">Niedziela – Poniedziałek</span><span class="text-mute">Zamknięte</span></li>
+            </ul>
+            <p id="footerLiveHours" class="ui text-copper mt-3">Sprawdzanie statusu…</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Parcelacyjna+9%2C+91-141+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener" data-roll-host class="nav-link ui text-copper inline-block mt-3"><span data-roll>Wyznacz trasę ↗</span></a>
           </div>
         </address>
@@ -1006,6 +1017,78 @@
         el.addEventListener('pointerleave', () => { el.style.transform = ''; });
       });
     }
+
+    /* ---------- Live Opening Hours (Warsaw / Łódź time) ---------- */
+    // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+    const schedule = {
+      0: null,                  // Niedziela: Zamknięte
+      1: null,                  // Poniedziałek: Zamknięte
+      2: { open: 10, close: 20 }, // Wtorek: 10:00–20:00
+      3: { open: 10, close: 20 }, // Środa: 10:00–20:00
+      4: { open: 10, close: 20 }, // Czwartek: 10:00–20:00
+      5: { open: 10, close: 20 }, // Piątek: 10:00–20:00
+      6: { open: 10, close: 17 }, // Sobota: 10:00–17:00
+    };
+    const dayNames = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
+    const fmtHour = (h) => `${String(h).padStart(2, '0')}:00`;
+
+    const updateLiveHours = () => {
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Europe/Warsaw',
+        weekday: 'short',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+      }).formatToParts(now);
+      const map = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+      const wkMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+      const dayIdx = wkMap[map.weekday] ?? now.getDay();
+      const hour = parseInt(map.hour || '0', 10) % 24;
+      const minute = parseInt(map.minute || '0', 10);
+      const curTime = hour + minute / 60;
+
+      const todayName = dayNames[dayIdx];
+      const todaySched = schedule[dayIdx];
+      const dayLabelEl = document.getElementById('hoursDayLabel');
+      const mainTimeEl = document.getElementById('hoursMainTime');
+      const subStatusEl = document.getElementById('hoursSubStatus');
+      const footerLiveEl = document.getElementById('footerLiveHours');
+
+      const findNextOpen = (startOffset) => {
+        for (let offset = startOffset; offset <= 7; offset++) {
+          const d = (dayIdx + offset) % 7;
+          if (schedule[d]) {
+            return { dayIdx: d, offset, sched: schedule[d], name: dayNames[d] };
+          }
+        }
+        return { dayIdx: 2, offset: 1, sched: schedule[2], name: dayNames[2] };
+      };
+
+      if (todaySched && curTime >= todaySched.open && curTime < todaySched.close) {
+        // Currently OPEN
+        dayLabelEl.textContent = `${todayName} · Otwarte`;
+        mainTimeEl.textContent = `${fmtHour(todaySched.open)}–${fmtHour(todaySched.close)}`;
+        subStatusEl.textContent = `Teraz otwarte · czynne do ${fmtHour(todaySched.close)}`;
+        footerLiveEl.textContent = `● Teraz otwarte (${todayName}: ${fmtHour(todaySched.open)}–${fmtHour(todaySched.close)})`;
+      } else if (todaySched && curTime < todaySched.open) {
+        // Opens later today
+        dayLabelEl.textContent = `Dziś · ${todayName}`;
+        mainTimeEl.textContent = `${fmtHour(todaySched.open)}–${fmtHour(todaySched.close)}`;
+        subStatusEl.textContent = `Otwarcie dziś o ${fmtHour(todaySched.open)}`;
+        footerLiveEl.textContent = `Dziś (${todayName}): otwarcie o ${fmtHour(todaySched.open)}`;
+      } else {
+        // Closed for today (either after closing time or Sunday/Monday) -> show next open day
+        const next = findNextOpen(1);
+        const prefix = next.offset === 1 ? 'Jutro · ' : '';
+        dayLabelEl.textContent = `${prefix}${next.name}`;
+        mainTimeEl.textContent = `${fmtHour(next.sched.open)}–${fmtHour(next.sched.close)}`;
+        subStatusEl.textContent = `Zamknięte · otwarcie o ${fmtHour(next.sched.open)}`;
+        footerLiveEl.textContent = `Zamknięte · otwarcie: ${next.name.toLowerCase()} o ${fmtHour(next.sched.open)}`;
+      }
+    };
+    updateLiveHours();
+    setInterval(updateLiveHours, 60000);
   })();
   </script>
 </body>
