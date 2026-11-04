@@ -708,11 +708,71 @@
 
     <!-- Bottom bar -->
     <div class="mx-auto w-[min(1400px,calc(100%-3rem))] mt-[clamp(4rem,8vw,8rem)] py-8 border-t border-white/10 flex flex-col md:flex-row gap-4 md:items-center md:justify-between ui text-mute">
-      <p>© <span id="year">2026</span> Graczyk — salon fryzjerski</p>
+      <p>© <span id="year">2026</span> Graczyk — salon fryzjerski · <span class="text-copper">DEMO PREVIEW</span></p>
       <p class="hidden md:block">Precision. Atmosphere. Mastery.</p>
       <a href="#top" data-roll-host class="nav-link self-start md:self-auto text-pearl"><span data-roll>Back to top ↑</span></a>
     </div>
   </footer>
+
+  <!-- ============ DEMO PREVIEW WATERMARK & MODAL ============ -->
+  <!-- Subtle diagonal watermark -->
+  <div class="pointer-events-none fixed inset-0 z-[75] overflow-hidden select-none opacity-[0.032]" aria-hidden="true">
+    <div class="absolute -inset-[40%] flex flex-wrap items-center justify-center gap-24 -rotate-12 font-serif text-4xl tracking-[0.35em] text-pearl uppercase">
+      <span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span>
+      <span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span>
+      <span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span>
+      <span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span><span>DEMO PREVIEW · GRACZYK</span>
+    </div>
+  </div>
+
+  <!-- Floating Demo Pill -->
+  <div id="demoBar" class="fixed bottom-4 inset-x-0 z-[85] mx-auto w-[min(680px,calc(100%-1.5rem))]">
+    <div class="glass rounded-full px-4 py-2.5 md:px-6 md:py-3 flex items-center justify-between gap-3 border border-copper/40 shadow-[0_12px_40px_rgba(0,0,0,0.85)]">
+      <div class="flex items-center gap-3 min-w-0">
+        <span class="relative flex h-2.5 w-2.5 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-copper opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-copper"></span>
+        </span>
+        <p class="ui text-pearl truncate">
+          <span class="text-copper font-medium">Wersja demonstracyjna</span>
+          <span class="hidden sm:inline text-mute"> · Projekt koncepcyjny dla salonu Graczyk</span>
+        </p>
+      </div>
+      <button type="button" id="demoInfoBtn" class="ui shrink-0 rounded-full bg-copper text-obsidian px-3.5 py-1.5 font-medium hover:bg-pearl transition-colors duration-500">
+        Info
+      </button>
+    </div>
+  </div>
+
+  <!-- Demo Action Modal -->
+  <div id="demoModal" class="fixed inset-0 z-[92] hidden items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="relative w-full max-w-lg rounded-[28px] bg-carbon border border-copper/40 p-7 md:p-10 shadow-2xl">
+      <div class="flex items-center justify-between mb-6">
+        <span class="ui text-copper flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> Wersja Demo · Preview
+        </span>
+        <button type="button" id="demoModalClose" class="h-9 w-9 rounded-full border border-white/15 grid place-items-center text-pearl/70 hover:text-pearl hover:border-copper transition-colors" aria-label="Zamknij">✕</button>
+      </div>
+      <h3 id="demoModalTitle" class="font-serif text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-pearl mb-4">
+        To jest <em class="text-copper">prezentacja</em> projektu strony.
+      </h3>
+      <p id="demoModalAction" class="ui text-copper/90 mb-4 hidden"></p>
+      <p class="text-mute leading-relaxed text-sm md:text-base mb-6">
+        Przeglądasz interaktywną wersję demonstracyjną przygotowaną specjalnie dla <strong class="text-pearl font-normal">Graczyk — salon fryzjerski</strong>. W pełnej, aktywowanej wersji strony:
+      </p>
+      <ul class="space-y-2.5 text-sm text-pearl/90 mb-8 border-y border-white/10 py-5">
+        <li class="flex items-start gap-3"><span class="text-copper">✦</span><span>Przyciski <strong>Book Now</strong> i numer telefonu od razu łączą klienta z recepcją lub systemem Booksy.</span></li>
+        <li class="flex items-start gap-3"><span class="text-copper">✦</span><span>Wstawimy prawdziwe zdjęcia wnętrza oraz aktualny cennik usług.</span></li>
+        <li class="flex items-start gap-3"><span class="text-copper">✦</span><span>Znak wodny oraz pasek wersji demonstracyjnej zostaną całkowicie usunięte, a strona zostanie odblokowana w Google.</span></li>
+      </ul>
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <span class="ui text-mute">Projekt gotowy do wdrożenia</span>
+        <button type="button" id="demoModalOk" class="ui rounded-full bg-copper text-obsidian px-6 py-3 font-medium hover:bg-pearl transition-colors duration-500">
+          Rozumiem, wróć do podglądu
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
   (() => {
@@ -1006,6 +1066,44 @@
         el.addEventListener('pointerleave', () => { el.style.transform = ''; });
       });
     }
+
+    /* ---------- DEMO PREVIEW LOCKS ---------- */
+    const demoModal = document.getElementById('demoModal');
+    const demoAction = document.getElementById('demoModalAction');
+    const openDemoModal = (reason) => {
+      if (reason) {
+        demoAction.textContent = 'Kliknięto: ' + reason;
+        demoAction.classList.remove('hidden');
+      } else {
+        demoAction.classList.add('hidden');
+      }
+      demoModal.classList.remove('hidden');
+      demoModal.classList.add('flex');
+    };
+    const closeDemoModal = () => {
+      demoModal.classList.add('hidden');
+      demoModal.classList.remove('flex');
+    };
+    document.getElementById('demoInfoBtn').addEventListener('click', () => openDemoModal(''));
+    document.getElementById('demoModalClose').addEventListener('click', closeDemoModal);
+    document.getElementById('demoModalOk').addEventListener('click', closeDemoModal);
+    demoModal.addEventListener('click', (e) => { if (e.target === demoModal) closeDemoModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDemoModal(); });
+
+    // Intercept booking / phone / external links in demo mode
+    document.querySelectorAll('a[href^="tel:"], a[target="_blank"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const label = link.getAttribute('href').startsWith('tel:')
+          ? 'Rezerwacja / Telefon (+48 691 218 390)'
+          : 'Link zewnętrzny (Google Maps / Opinie)';
+        openDemoModal(label);
+      });
+    });
+
+    // Basic copy / right-click protection for demo
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
   })();
   </script>
 </body>
